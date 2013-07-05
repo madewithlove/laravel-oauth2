@@ -3,7 +3,7 @@
 namespace OAuth2\Provider;
 
 use OAuth2\Provider;
-use OAuth2\Token\Token_Access;
+use OAuth2\Token_Access;
 
 // OAuth2 Provider for Windows Live Connect
 class Windowslive extends Provider
