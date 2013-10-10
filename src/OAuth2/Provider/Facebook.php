@@ -38,7 +38,9 @@ class Facebook extends Provider
 			'name' => $user->name,
 			'email' => $user->email,
 			'location' => $user->hometown->name,
-			'description' => $user->bio,
+			'gender' => $user->gender,
+			'timezone' => $user->timezone,
+			'verified' => $user->verified,
 			'image' => 'https://graph.facebook.com/me/picture?type=normal&access_token='.$token->access_token,
 			'urls' => array(
 			  'Facebook' => $user->link,
