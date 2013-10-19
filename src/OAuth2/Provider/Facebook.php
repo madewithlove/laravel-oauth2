@@ -37,7 +37,6 @@ class Facebook extends Provider
 			'nickname' => $user->username,
 			'name' => $user->name,
 			'email' => $user->email,
-			'location' => $user->hometown->name,
 			'gender' => $user->gender,
 			'timezone' => $user->timezone,
 			'verified' => $user->verified,
