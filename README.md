@@ -55,7 +55,7 @@ class UserController extends BaseController {
      * @param string $provider
      * @return response
      */
-    public function oauth2Login($provider) {
+public function oauth2Login($provider) {
 		switch ($provider) {
 			case 'facebook':
 				$credentials = [
@@ -83,9 +83,25 @@ class UserController extends BaseController {
 			])));
 
 			// Here you should use this information to A) look for a user B) help a new user sign up with existing data.
-            // All you have to do from here is User::create([]) with the required informaion - assuming you're using laravel defaults.
-            //dd('<pre>' . var_dump($user) . '</pre>');
-            Redirect::to(action('SomeController@afterLogin')); //Where ever you want to go after you registered &/or logged them in
+			//dd('<pre>' . var_dump($user) . '</pre>');
+            
+			$name 	= explode(' ', $user['name']);
+			$email 	= $user['email'];
+			$user 	= User::whereRaw('first_name = ? and last_name = ? and email = ?', [$name[0], end($name), $email]);
+
+			if (0 == $user->count()) {
+				$user = User::create([
+					'first_name' 	=> $name[0],
+					'last_name'		=> end($name),
+					'email'			=> $email
+				]);
+                
+				Auth::login($user);
+			} else {
+				Auth::login($user->first());
+			}
+
+			return Redirect::to(action('GeneralController@showHome'));
 		}
 	}
 }
