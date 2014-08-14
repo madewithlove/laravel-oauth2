@@ -15,7 +15,7 @@ class Facebook extends Provider
 
 	public function url_authorize()
 	{
-		return 'https://www.facebook.com/dialog/oauth';
+		return 'https://www.facebook.com/v2.0/dialog/oauth';
 	}
 
 	public function url_access_token()
@@ -43,7 +43,7 @@ class Facebook extends Provider
 			'gender' => $user->gender,
 			'timezone' => $user->timezone,
 			'verified' => $user->verified,
-			'image' => 'https://graph.facebook.com/me/picture?type=normal&access_token='.$token->access_token,
+			'image' => 'https://graph.facebook.com/v2.1/me/picture?type=normal&access_token='.$token->access_token,
 			'urls' => array(
 			  'Facebook' => $user->link,
 			),
