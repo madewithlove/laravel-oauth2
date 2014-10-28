@@ -6,17 +6,16 @@ use OAuth2\Provider;
 use OAuth2\Token_Access;
 
 /*
- * Jawbone API credentials: https://jawbone.com/up/developer/account
- * Jawbone API docs: https://jawbone.com/up/developer/authentication
+ * Slack OAuth: https://api.slack.com/docs/oauth
  */
 
 
 /**
- * Jawbone OAuth Provider
+ * Slack OAuth Provider
  *
  * @package    laravel-oauth2
  * @category   Provider
- * @author     Andreas Creten
+ * @author     Hélder Duarte
  */
 
 class Slack extends Provider {
