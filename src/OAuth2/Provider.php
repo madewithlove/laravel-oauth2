@@ -194,7 +194,7 @@ abstract class Provider {
 		{
 			case 'GET':
 				// Need to switch to Request library, but need to test it on one that works
-				$url .= '?'.http_build_query($params);
+				$url .= '?'.http_build_query($params, '', '&');
 				$response = file_get_contents($url);
 
 				parse_str($response, $return);
