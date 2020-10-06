@@ -1,5 +1,9 @@
 # Laravel OAuth 2.0
 
+** ⚠️ This package is abandoned **
+
+Please use [Laravel Socialite](https://laravel.com/docs/8.x/socialite) for OAuth logins instead of this outdated package.
+
 **This is a port to Laravel 4 of Talor Otwell's Laravel-oAuth2 bundle. Which he based on the CodeIgniter OAuth2 Spark maintained by Phil Sturgeon**
 
 Authorize users with your application in a driver-base fashion meaning one implementation works for multiple OAuth 2 providers. This is only to authenticate onto OAuth2 providers and not to build an OAuth2 service.
