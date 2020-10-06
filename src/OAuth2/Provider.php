@@ -194,8 +194,21 @@ abstract class Provider {
 		{
 			case 'GET':
 				// Need to switch to Request library, but need to test it on one that works
-				$url .= '?'.http_build_query($params);
-				$response = file_get_contents($url);
+				$url .= '?'.http_build_query($params, '', '&');
+
+                // make request
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $response = curl_exec($ch);
+
+                // handle error; error output
+                if(curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) {
+                    curl_error($ch);
+                    Throw new \Exception('Something went wrong with oAuth2 Provider: ' . $response);
+                }
+
+                curl_close($ch);
 
 				parse_str($response, $return);
 				break;
