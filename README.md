@@ -1,6 +1,6 @@
 # Laravel OAuth 2.0
 
-** ⚠️ This package is abandoned **
+**⚠️ This package is abandoned**
 
 Please use [Laravel Socialite](https://laravel.com/docs/8.x/socialite) for OAuth logins instead of this outdated package.
 
